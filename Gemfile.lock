@@ -124,7 +124,7 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    pg (1.2.3)
+    pg (0.20.0)
     public_suffix (4.0.5)
     puma (3.12.6)
     rack (2.2.3)
@@ -246,4 +246,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   2.1.4
+   2.2.3
