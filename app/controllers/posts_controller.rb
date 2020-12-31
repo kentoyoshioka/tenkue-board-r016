@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :show]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
 
@@ -10,9 +10,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = current_user.posts.create(post_params)
     if @post.save
-      redirect_to :root #成功の場合
+      redirect_to :posts_path #成功の場合
     else
       render 'new' #失敗の場合
     end
