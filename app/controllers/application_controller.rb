@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
-  #before_action :login_required, only: [:index, :show]
+  before_action :require_login, only: [:new, :show]
   
   
   
-  #private
-   #def login_required
-    #redirect_to post_path unless current_user
-   #end
-  
+  private
+   def require_login
+    unless current_user
+    redirect_to new_user_session_path
+    end
+   end
 end
