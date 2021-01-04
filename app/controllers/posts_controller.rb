@@ -5,19 +5,15 @@ class PostsController < ApplicationController
   end
   
   def edit
-    @post = Post.find_by(id:params[:id])
+　  super
   end
   
   def update
-    if @post.update(post_params)
-      redirect_to topic_path
-    end
+    super
   end
   
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to topic_path
+    super
   end
   
   
