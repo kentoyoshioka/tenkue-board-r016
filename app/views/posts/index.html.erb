@@ -34,6 +34,7 @@
               </li>
             </ul>
             <ul class="post__bottom_box__admin_actions">
+             <% if @post.user_id == @current_user.id %>
               <li><%= link_to '編集', edit_post_path(post) %></li>
               <li><%= link_to '削除', post_path, method: :delete %> </li>
             </ul>
@@ -41,5 +42,6 @@
         </div>
       </li>
     </ul>
+    <% end %>
   </div>
 </div>
