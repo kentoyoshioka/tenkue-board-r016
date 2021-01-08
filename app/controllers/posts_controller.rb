@@ -29,9 +29,8 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: '更新しました。'
+      redirect_to post_path(@post)
     else
-      flash.now[:error] = '更新できませんでした。'
       render :edit
     end
   end
@@ -39,7 +38,7 @@ class PostsController < ApplicationController
   def destroy
     post = current_user.posts.find(params[:id])
     post.destroy!
-    redirect_to root_path, notice: '掲示板を削除しました。'
+    redirect_to root_path
   end
 
   private
