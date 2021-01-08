@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to :posts_path #成功の場合
+      redirect_to root_path #成功の場合
     else
       render 'new' #失敗の場合
     end
