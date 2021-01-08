@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_post, only: [:show]
 
   def index
 
+  end
+
+  def show
   end
 
   def new
@@ -23,4 +27,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:content)
   end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
 end
