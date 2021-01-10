@@ -9,4 +9,8 @@ class User < ApplicationRecord
     posts.exists?(id: post.id)
   end
 
+  def has_liked?(post)
+    likes.exists?(post_id: post.id)
+  end
+
 end
