@@ -5,7 +5,9 @@
   </li>
 <% else %>
   <li>
-    <i class="far fa-heart"></i>
+    <%= link_to post_like_path(post), data: { method: 'post' } do %>
+      <i class="far fa-heart"></i>
+    <% end %>
     <span>いいね数</span>
   </li>
 <% end %>
