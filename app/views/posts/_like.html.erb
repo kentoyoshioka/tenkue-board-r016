@@ -1,6 +1,8 @@
 <% if current_user.has_liked?(post) %>
   <li>
-    <i class="fas fa-heart"></i>
+    <%= link_to post_like_path(post), data: { method: 'delete' } do %>
+      <i class="fas fa-heart"></i>
+    <% end %>
     <span>いいね数</span>
   </li>
 <% else %>
