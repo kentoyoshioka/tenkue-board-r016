@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_post, only: [:show]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
 
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -22,6 +23,22 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post.destroy!
+    redirect_to root_path
+  end
+
   private
 
   def post_params
@@ -29,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
 end
