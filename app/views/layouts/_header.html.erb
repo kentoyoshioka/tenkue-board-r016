@@ -13,12 +13,12 @@
         ログアウト
       </li>
       <li class="header__bar__user_nav__btn">
-        投稿する
+        <%= link_to '投稿する', new_post_path %>
       </li>
     </ul>
     <ul class="header__bar__user_nav">
       <li class="header__bar__user_nav__btn">
-        ゲストログイン
+        <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
       </li>
       <li class="header__bar__user_nav__btn">
         ログイン
