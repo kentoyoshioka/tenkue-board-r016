@@ -1,0 +1,11 @@
+<%= current_user.has_liked?(post) %>
+  <li>
+    <i class="fas fa-heart"></i>
+    <span>いいね数</span>
+  </li>
+<% else %>
+  <li>
+    <i class="far fa-heart"></i>
+    <span>いいね数</span>
+  </li>
+<% end %>
