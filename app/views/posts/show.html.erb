@@ -28,7 +28,7 @@
           <ul class="post_detail__bottom_box__user_actions">
             <li>
               <i class="far fa-comment-alt"></i>
-              <span>コメント数</span>
+              <span><%= @comments.count %></span>
             </li>
             <li>
               <i class="far fa-heart"></i>
@@ -54,8 +54,12 @@
             <div class="comment_area__list__comment__right_box">
               <div class="comment_area__list__comment__right_box__info">
                 <% if user_signed_in? && current_user.id == comment.user_id %>
-                    <span><%= link_to '編集', edit_post_comment_path(comment) %></span>
+                    <%
+=begin%>
+ <span><%= link_to '編集', edit_post_comment_path(comment) %></span>
                     <span><%= link_to '削除', post_comment_path(comment), data: { method: 'delete', title: '削除確認', confirm: '本当に削除して良いですか？', cancel: 'やめる', commit: '削除する' } %></span>
+<%
+=end%>
                 <% end %>
                 <span>投稿日時：<%= comment.created_at %></span>
               </div>
