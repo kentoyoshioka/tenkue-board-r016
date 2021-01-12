@@ -1,6 +1,6 @@
 <%= form_with model: @post, local: true do |f| %>
   <div class="form_area">
-    <%= render partial: 'layouts/error_messages', locals: { post: @post } %>
+    <%= render partial: 'posts/error_messages', locals: { post: @post } %>
     <div class="form_area__field">
       <div class="textarea">
         <%= f.text_area :content, placeholder: "投稿内容を入力" %>

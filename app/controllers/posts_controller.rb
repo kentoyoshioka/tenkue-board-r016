@@ -7,7 +7,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:comments, :user).find(params[:id])
+
+    #コメント表示
+    @comments = @post.comments.order(created_at: :desc)
+    @comment = Comment.new
   end
 
   def new
@@ -17,9 +21,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to root_path #成功の場合
+      redirect_to root_path
     else
-      render 'new' #失敗の場合
+      render 'new'
     end
   end
 

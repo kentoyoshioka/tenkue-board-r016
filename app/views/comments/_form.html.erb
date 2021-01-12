@@ -1,0 +1,16 @@
+<%= form_with model: @comment, url: post_comments_path(@post.id), local: true do |f| %>
+  <div class="comment_area__form_box__form">
+
+    <div class="comment_area__form_box__form__field">
+      <div class="textarea">
+        <%= f.text_area :comment, placeholder: "コメントを入力" %>
+      </div>
+    </div>
+    <div class="comment_area__form_box__form__hidden_field">
+      <%= f.hidden_field :post_id, value: @post.id %>
+    </div>
+    <div class="comment_area__form_box__form__action">
+      <%= f.submit "送信", class: :comment_area__form_box__form__action__btn %>
+    </div>
+  </div>
+<% end %>
